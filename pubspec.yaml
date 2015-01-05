@@ -4,7 +4,8 @@ author: Andrew Mezoni <andrew.mezoni@gmail.com>
 description: Testing the binary interop for Dart.
 homepage: https://github.com/mezoni/binary_interop_testing
 dev_dependencies:
-  binary_interop: any
+  binary_interop:
+    path: /home/andrew/dart/for_web/binary_interop
   build_tools: any
   caller_info: any
   ccompilers: any

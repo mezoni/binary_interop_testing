@@ -34,7 +34,7 @@ EXTERN_C S1 test_S1_S1(S1 s) {
   return s;
 }
 
-EXTERN_C void test_void_pS1(PS1 s, char* cp) {
+EXTERN_C void test_void_pS1_pchar(PS1 s, char* cp) {
   s->c1++;
   s->i1++;
   s->s1.cp1 = cp;

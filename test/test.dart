@@ -74,35 +74,43 @@ void main() {
 
     test("Return int, parameters [void].", () {
       lib.function("sizeof_S1", INT, []);
-      var result = lib.invokeEx("sizeof_S1", []);
+      var result = lib.invokeEx("sizeof_S1");
       expect(result, S1.size);
     });
 
     test("Return void, parameters [void].", () {
       lib.function("test_void_void", VOID, []);
-      var result = lib.invokeEx("test_void_void", []);
+      var result = lib.invokeEx("test_void_void");
       expect(result, null);
     });
 
     test("Return struct, parameters [struct].", () {
       lib.function("test_S1_S1", S1, [S1]);
+
+      // Surrogate struct
       var s1 = S1.defaultValue;
       s1["c1"] = 100;
       s1["i1"] = 200;
       var result = lib.invokeEx("test_S1_S1", [s1]);
+
+      // Test returned surrogate struct
       expect(result["c1"], 101);
       expect(result["i1"], 201);
     });
 
     test("Return void, parameters [struct, char*].", () {
-      lib.function("test_void_pS1", VOID, [PS1, PCHAR]);
+      lib.function("test_void_pS1_pchar", VOID, [PS1, PCHAR]);
+
+      // Real binary struct in memory
       var s1 = S1.alloc(const {});
       s1["c1"].value = 100;
       s1["i1"].value = 200;
       var hello = "Hello";
       var ca = helper.allocString(hello);
-      var result = lib.invokeEx("test_void_pS1", [~s1, ~ca]);
+      var result = lib.invokeEx("test_void_pS1_pchar", [~s1, ~ca]);
       expect(result, null);
+
+      // Tets our struct in memory
       expect(s1["c1"].value, 101);
       expect(s1["i1"].value, 201);
       var str2 = s1["s1"]["cp1"].value;
