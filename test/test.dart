@@ -169,6 +169,7 @@ void main() {
 
         formatted = helper.readString(~buffer);
         expect(formatted, "Hello World", reason: "Hello World");
+        expect(length, formatted.length, reason: formatted);
       }
 
       //
@@ -188,6 +189,7 @@ void main() {
 
         formatted = helper.readString(~buffer);
         expect(formatted, "Hello 42", reason: "Hello 42");
+        expect(length, formatted.length, reason: formatted);
       }
 
       //
@@ -207,6 +209,7 @@ void main() {
 
         formatted = helper.readString(~buffer);
         expect(formatted, "Hello 42.000000", reason: "Hello 42.000000");
+        expect(length, formatted.length, reason: formatted);
       }
 
       //
@@ -226,6 +229,7 @@ void main() {
 
         formatted = helper.readString(~buffer);
         expect(formatted, "Hello 42 42.000000", reason: "Hello 42 42.000000");
+        expect(length, formatted.length, reason: formatted);
       }
     });
   });
