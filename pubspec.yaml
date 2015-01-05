@@ -1,0 +1,12 @@
+name: binary_interop_testing
+version: 0.0.1
+author: Andrew Mezoni <andrew.mezoni@gmail.com>
+description: Testing the binary interop for Dart.
+homepage: https://github.com/mezoni/binary_interop_testing
+dev_dependencies:
+  binary_interop: any
+  build_tools: any
+  caller_info: any
+  ccompilers: any
+  path: any
+  unittest: any
